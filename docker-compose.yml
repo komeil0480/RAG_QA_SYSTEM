@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag_qa_system
+    volumes:
+      - .:/app  # Map your local files to the container
+    ports:
+      - "8000:8000"  # Expose the app on port 8000
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mongodb  # Ensure MongoDB starts before the app
+    networks:
+      - rag_network  # Attach to the custom network
+    command: uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
+
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"  # Expose MongoDB on localhost:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo-data:/data/db  # Persist data across container restarts
+    networks:
+      - rag_network  # Attach to the custom network
+
+volumes:
+  mongo-data:
+
+networks:
+  rag_network:  # Define a custom network
+    driver: bridge
