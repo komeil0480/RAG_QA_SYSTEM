@@ -18,7 +18,7 @@ class HuggingFaceAPIModel:
         """
         try:
             response = self.client.text_generation(prompt, max_new_tokens=max_length)
-            if response.startswith(prompt):  # Remove input prompt if included in output
+            if response.startswith(prompt): 
                 return response[len(prompt):].strip()
             return response.strip()
         except Exception as e:

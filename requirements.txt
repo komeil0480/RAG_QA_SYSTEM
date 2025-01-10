@@ -4,5 +4,6 @@ huggingface-hub
 fastapi
 uvicorn
 pymongo
-llama-index
+llama-index-embeddings-openai
 wikipedia-api
+faiss-cpu

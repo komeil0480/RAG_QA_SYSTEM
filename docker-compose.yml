@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: rag_qa_system
     volumes:
-      - .:/app  # Map your local files to the container
+      - .:/app  
     ports:
       - "8000:8000"  # Expose the app on port 8000
     stdin_open: true

@@ -9,7 +9,7 @@ from typing import List, Optional
 # Initialize router
 router = APIRouter()
 
-documents_collection = mongo_db.get_document_collection()  # Assuming you have a collection for documents
+documents_collection = mongo_db.get_document_collection() 
 logs_collection = mongo_db.get_query_collection()
 
 def is_valid_object_id(id: str) -> bool:
@@ -24,8 +24,8 @@ async def get_all_documents():
     documents = list(documents_collection.find())
     for document in documents:
         document["_id"] = str(document["_id"])
-        if document["embeddings"] is not None:
-            document["embeddings"] = list(document["embeddings"].keys())
+        if document["embedding"] is not None:
+            document["embedding"] = list(document["embedding"].keys())
         # document["_id"] = str(document["_id"])  # Convert ObjectId to string
         # if "embedding" in document and isinstance(document["embedding"], object):
         #     document["embedding"] = list(document["embedding"].keys())
@@ -67,15 +67,15 @@ async def upload_document(
             )
 
         # Generate embeddings if embedding_models is provided
-        embeddings = {}
+        embedding = {}
         for model_name in doc.embedding_models:
             embedding = generate_embedding(doc.text, model_name)
-            embeddings[model_name] = embedding.tolist()  # Convert numpy array to list
+            embedding[model_name] = embedding.tolist()  # Convert numpy array to list
 
         # Prepare document data
         document_data = {
             "text": doc.text,
-            "embeddings": embeddings if embeddings else {},
+            "embedding": embedding if embedding else {},
             "timestamp": datetime.utcnow(),
             "duration": time.time() - start_time,
         }

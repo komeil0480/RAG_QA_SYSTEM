@@ -4,15 +4,15 @@ from llama_index.core.schema import Document
 from llama_index.core.node_parser import SentenceSplitter
 import sys
 import os
-
+from datetime import datetime
+import time
 # Append the root directory to sys.path
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(root_dir)
 from mongo_db import mongo_db
-from datetime import datetime
-import time
 
-documents_collection = mongo_db.get_document_collection()  # Assuming you have a collection for documents
+
+documents_collection = mongo_db.get_document_collection() 
 
 
 # Make a GET request to a service that returns your User-Agent
@@ -62,53 +62,53 @@ if __name__ == "__main__":
     "ChatGPT",
     "Deaths in 2023",
     "2023 Cricket World Cup",
-    "Indian Premier League",
-    "Oppenheimer (film)",
-    "J. Robert Oppenheimer",
-    "Cricket World Cup",
-    "Jawan (film)",
-    "Taylor Swift",
-    "The Last of Us (TV series)",
-    "2023 Indian Premier League",
-    "Pathaan (film)",
-    "Premier League",
-    "Barbie (film)",
-    "Lionel Messi",
-    "Cristiano Ronaldo",
-    "Donald Trump",
-    "Elon Musk",
-    "Kamala Harris",
-    "Joe Biden",
-    "Vladimir Putin",
-    "Xi Jinping",
-    "Narendra Modi",
-    "Boris Johnson",
-    "Angela Merkel",
-    "Emmanuel Macron",
-    "Justin Trudeau",
-    "Jacinda Ardern",
-    "Sanna Marin",
-    "Volodymyr Zelenskyy",
-    "Greta Thunberg",
-    "Malala Yousafzai",
-    "Bill Gates",
-    "Jeff Bezos",
-    "Mark Zuckerberg",
-    "Warren Buffett",
-    "Bernard Arnault",
-    "Larry Page",
-    "Sergey Brin",
-    "Steve Jobs",
-    "Tim Cook",
-    "Sundar Pichai",
-    "Satya Nadella",
-    "Sheryl Sandberg",
-    "Susan Wojcicki",
-    "Marissa Mayer",
-    "Meg Whitman",
-    "Ginni Rometty",
-    "Indra Nooyi",
-    "Oprah Winfrey"
+    # "Indian Premier League",
+    # "Oppenheimer (film)",
+    # "J. Robert Oppenheimer",
+    # "Cricket World Cup",
+    # "Jawan (film)",
+    # "Taylor Swift",
+    # "The Last of Us (TV series)",
+    # "2023 Indian Premier League",
+    # "Pathaan (film)",
+    # "Premier League",
+    # "Barbie (film)",
+    # "Lionel Messi",
+    # "Cristiano Ronaldo",
+    # "Donald Trump",
+    # "Elon Musk",
+    # "Kamala Harris",
+    # "Joe Biden",
+    # "Vladimir Putin",
+    # "Xi Jinping",
+    # "Narendra Modi",
+    # "Boris Johnson",
+    # "Angela Merkel",
+    # "Emmanuel Macron",
+    # "Justin Trudeau",
+    # "Jacinda Ardern",
+    # "Sanna Marin",
+    # "Volodymyr Zelenskyy",
+    # "Greta Thunberg",
+    # "Malala Yousafzai",
+    # "Bill Gates",
+    # "Jeff Bezos",
+    # "Mark Zuckerberg",
+    # "Warren Buffett",
+    # "Bernard Arnault",
+    # "Larry Page",
+    # "Sergey Brin",
+    # "Steve Jobs",
+    # "Tim Cook",
+    # "Sundar Pichai",
+    # "Satya Nadella",
+    # "Sheryl Sandberg",
+    # "Susan Wojcicki",
+    # "Marissa Mayer",
+    # "Meg Whitman",
+    # "Ginni Rometty",
+    # "Indra Nooyi",
+    # "Oprah Winfrey"
     ]
     process_wikipedia_page(page_titles)
 

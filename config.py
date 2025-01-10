@@ -6,6 +6,8 @@ import json
 # Load the environment variables from .env
 load_dotenv()
 
+OPENAIKEY = os.getenv("OPENAIKEY")
+
 # MongoDB Configuration
 MONGO_USERNAME = os.getenv("MONGO_USERNAME")
 MONGO_PASSWORD = os.getenv("MONGO_PASSWORD")

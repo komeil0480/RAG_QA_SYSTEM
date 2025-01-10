@@ -1,8 +1,8 @@
 from models.hugging_face_model import HuggingFaceAPIModel
 
 if __name__ == "__main__":
-    # Replace with your Hugging Face API token
-    api_token = "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"
+   
+    api_token = ""
 
     # Initialize the Hugging Face API model
     hf_api_model = HuggingFaceAPIModel(model_name="google/flan-t5-large", api_token=api_token)

@@ -22,11 +22,12 @@ async def process_embedding(
     
     # Helper function to process a single document
     def process_document(doc):
-        if model_name not in doc["embeddings"]:
+        if model_name not in doc["embedding"]:
             embedding = generate_embedding(doc["text"], model_name)
-            doc["embeddings"][model_name] = embedding.tolist()
+            print(embedding.tolist)
+            doc["embedding"][model_name] = embedding.tolist()
             doc["updated_at"] = datetime.utcnow()
-            documents_collection.update_one({"_id": doc["_id"]}, {"$set": doc})
+            documents_collection.update_one({"_id": doc["_id"]}, {"embedding": doc})
     
     # If document_id is provided
     if document_id:
