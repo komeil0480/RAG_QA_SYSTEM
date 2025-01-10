@@ -5,13 +5,12 @@ import logging
 from config import embedding_models_dict, OPENAIKEY
 from sentence_transformers import SentenceTransformer
 
-app = APIRouter()
+router = APIRouter()
 
-embedding_model_1 = SentenceTransformer(embedding_models_dict["all-MiniLM-L6-v2"])
-embedding_model_2 = SentenceTransformer(embedding_models_dict["LaBSE"])
-
-@app.get("/", response_class=JSONResponse)
+@router.get("/", response_class=JSONResponse)
 async def health_check():
+    embedding_model_1 = SentenceTransformer(embedding_models_dict["all-MiniLM-L6-v2"])
+    embedding_model_2 = SentenceTransformer(embedding_models_dict["LaBSE"])
     health_status = {
         "status": "healthy",
         "api": "operational",

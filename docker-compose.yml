@@ -14,7 +14,7 @@ services:
       - mongodb  # Ensure MongoDB starts before the app
     networks:
       - rag_network  # Attach to the custom network
-    command: uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
+    #command: uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
 
 
   mongodb:
