@@ -27,7 +27,7 @@ This is a simple RAG API project designed for document management, query handlin
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/komeil0480/RAG_QA_SYSTEM.git
    cd your-repo-name
 
 OPENAI_API_KEY=your_openai_api_key
